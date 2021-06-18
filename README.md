@@ -8,4 +8,5 @@ Thanks to [big-data-europe](https://github.com/big-data-europe) since this conta
 Docker Hub link [here](https://hub.docker.com/repository/docker/gamberooni/hive-postgres-metastore).
 
 ## Version
-1. Hive 3.1.2
+1. Hadoop 3.2
+2. Hive 3.1.2
