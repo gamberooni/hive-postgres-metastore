@@ -32,6 +32,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Start all containers via docker-compose
+        run: docker network create -d bridge hive
+
+      - name: Start all containers via docker-compose
         run: docker-compose up -d
         
       - name: Wait for hive-server to be up since it has the longest chain of dependencies
