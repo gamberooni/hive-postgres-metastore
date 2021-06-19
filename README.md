@@ -1,5 +1,7 @@
 # Hive Metastore with Postgres
 
+[![Docker Image CI](https://github.com/gamberooni/hive-postgres-metastore/actions/workflows/docker-image.yml/badge.svg)](https://github.com/gamberooni/hive-postgres-metastore/actions/workflows/docker-image.yml)
+
 ## Intro
 This repo builds a Hive container image to be used as Spark metastore with Postgres for data persistence. Please refer to the `docker-compose.yml` in [this repo](https://github.com/gamberooni/spark-hive-metastore) for usage example. 
 
