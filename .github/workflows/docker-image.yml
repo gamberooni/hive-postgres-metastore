@@ -24,6 +24,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
   test_hive:
+    needs: push_to_registry
     name: Test Hive server and metastore 
     runs-on: ubuntu-latest
     steps:
