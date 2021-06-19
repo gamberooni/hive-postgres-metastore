@@ -40,9 +40,3 @@ jobs:
       - name: Wait for hive-server to be up since it has the longest chain of dependencies
         run: docker run willwill/wait-for-it localhost:10000 -- echo "Hive server is up"
 
-      - name: Test hiveserver2
-        run: docker exec -it hive-server /opt/hive/bin/beeline -u jdbc:hive2://127.0.0.1:10000 scott tiger
-        
-      - name: Test Hive metastore
-        run: docker exec -it hive-server /opt/hive/bin/hive --service metastore      
-
