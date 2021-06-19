@@ -23,3 +23,22 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
+  test_hive:
+    name: Test Hive server and metastore 
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Start all containers via docker-compose
+        run: docker-compose up -d
+        
+      - name: Wait for hive-server to be up since it has the longest chain of dependencies
+        run: docker run willwill/wait-for-it localhost:10000 -- echo "Hive server is up"
+
+      - name: Test hiveserver2
+        run: docker exec -it hive-server /opt/hive/bin/hive --service hiveserver2
+        
+      - name: Test Hive metastore
+        run: docker exec -it hive-server /opt/hive/bin/hive --service metastore      
+
